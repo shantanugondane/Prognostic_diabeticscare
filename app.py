@@ -1,5 +1,6 @@
 from keras.models import load_model
-from flask import Flask, render_template, request
+
+from flask import Flask, redirect, url_for, render_template, request
 import pickle
 
 app = Flask("dismodelapp")
@@ -10,6 +11,14 @@ model = load_model("dia_model.h5")
 @app.route("/")
 def predict():
     return render_template("index.html")
+
+@app.route("/login")
+def login():
+    return render_template("login2.html")
+
+@app.route("/signup")
+def signup():
+    return render_template("login2.html")
 
 
 @app.route("/output", methods=["GET"])

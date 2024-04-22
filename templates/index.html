@@ -500,10 +500,79 @@
           margin-bottom: 0.2rem;
         }
       }
+      /* Google Fonts Import Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20px 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.nav-links li{
+  list-style: none;
+  margin: 0 12px;
+}
+.nav-links li a{
+  position: relative;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0;
+  text-decoration: none;
+}
+.nav-links li a:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #34efdf;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+.nav-links li a:hover:before{
+  width: 100%;
+}
+.nav-links li.center a:before{
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-links li.upward a:before{
+  width: 100%;
+  bottom: -5px;
+  opacity: 0;
+}
+.nav-links li.upward a:hover:before{
+  bottom: 0px;
+  opacity: 1;
+}
+.nav-links li.forward a:before{
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+.nav-links li.forward a:hover:before{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.head{
+  font-size: 1.3rem;
+  font-weight: 600;
+}
     </style>
   </head>
 
   <body>
+  <ul class="nav-links">
+    <li><a href="/">Prognostic</a></li>
+    <li class="center"><a href="/login">Login</a></li>
+    <li class="upward"><a href="/login">signup</a></li>
+  </ul>
     <div class="wrapper">
       <div class="sct brand">
         <div class="sign">
@@ -530,43 +599,57 @@
       <div class="sct login">
         <form action="/output" method="GET">
           <!-- <h3>Login as Admin</h3> -->
+          <h1 class="head">Number of times pregnant</h1>
           <input
             type="number"
             name="z1"
             placeholder="Number of times pregnant"
           />
+          <h1 class="head">Plasma glucose concentration</h1>
           <input
             type="number"
             name="z2"
             placeholder="Plasma glucose concentration"
           />
+          <h1 class="head">Diastolic blood pressure (mm Hg)</h1>
+
           <input
             type="number"
             name="z3"
             placeholder="Diastolic blood pressure (mm Hg)"
           />
+          <h1 class="head">Triceps skin fold thickness (mm)</h1>
+
           <input
             type="number"
             name="z4"
             placeholder="Triceps skin fold thickness (mm)"
           />
+          <h1 class="head">2-Hour serum insulin (mu U/ml)</h1>
+
           <input
             type="number"
             name="z5"
             placeholder="2-Hour serum insulin (mu U/ml)"
           />
+          <h1 class="head">Body mass index</h1>
+
           <input
             type="number"
             name="z6"
             step=".001"
             placeholder="Body mass index"
           />
+          <h1 class="head">Diabetes pedigree function</h1>
+
           <input
             type="number"
             name="z7"
             step=".001"
             placeholder="Diabetes pedigree function"
           />
+          <h1 class="head">Age (years)</h1>
+
           <input type="number" name="z8" placeholder="Age (years)" />
 
           <input type="submit" name="Login" value="Predict" />
